@@ -14,6 +14,7 @@
 		7AD3F87D205D7D4E006B7C70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AD3F87B205D7D4E006B7C70 /* LaunchScreen.storyboard */; };
 		7AD3F888205D7D4F006B7C70 /* FoodTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3F887205D7D4F006B7C70 /* FoodTrackerTests.swift */; };
 		BCFBAA93208A00B6000F0717 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFBAA92208A00B6000F0717 /* RatingControl.swift */; };
+		BCFBAA96208A1AD5000F0717 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFBAA95208A1AD5000F0717 /* Meal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		7AD3F887205D7D4F006B7C70 /* FoodTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerTests.swift; sourceTree = "<group>"; };
 		7AD3F889205D7D4F006B7C70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCFBAA92208A00B6000F0717 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		BCFBAA95208A1AD5000F0717 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		7AD3F871205D7D4E006B7C70 /* FoodTracker */ = {
 			isa = PBXGroup;
 			children = (
+				BCFBAA94208A1ABD000F0717 /* Model */,
 				BCFBAA91208A0068000F0717 /* Views */,
 				7AD3F872205D7D4E006B7C70 /* AppDelegate.swift */,
 				7AD3F874205D7D4E006B7C70 /* ViewController.swift */,
@@ -105,6 +108,14 @@
 				BCFBAA92208A00B6000F0717 /* RatingControl.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		BCFBAA94208A1ABD000F0717 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BCFBAA95208A1AD5000F0717 /* Meal.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCFBAA96208A1AD5000F0717 /* Meal.swift in Sources */,
 				7AD3F875205D7D4E006B7C70 /* ViewController.swift in Sources */,
 				BCFBAA93208A00B6000F0717 /* RatingControl.swift in Sources */,
 				7AD3F873205D7D4E006B7C70 /* AppDelegate.swift in Sources */,
