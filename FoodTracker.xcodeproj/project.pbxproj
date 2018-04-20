@@ -13,6 +13,7 @@
 		7AD3F87A205D7D4E006B7C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AD3F879205D7D4E006B7C70 /* Assets.xcassets */; };
 		7AD3F87D205D7D4E006B7C70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AD3F87B205D7D4E006B7C70 /* LaunchScreen.storyboard */; };
 		7AD3F888205D7D4F006B7C70 /* FoodTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD3F887205D7D4F006B7C70 /* FoodTrackerTests.swift */; };
+		BCFBAA93208A00B6000F0717 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFBAA92208A00B6000F0717 /* RatingControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		7AD3F883205D7D4E006B7C70 /* FoodTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AD3F887205D7D4F006B7C70 /* FoodTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTrackerTests.swift; sourceTree = "<group>"; };
 		7AD3F889205D7D4F006B7C70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCFBAA92208A00B6000F0717 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		7AD3F871205D7D4E006B7C70 /* FoodTracker */ = {
 			isa = PBXGroup;
 			children = (
+				BCFBAA91208A0068000F0717 /* Views */,
 				7AD3F872205D7D4E006B7C70 /* AppDelegate.swift */,
 				7AD3F874205D7D4E006B7C70 /* ViewController.swift */,
 				7AD3F876205D7D4E006B7C70 /* Main.storyboard */,
@@ -94,6 +97,14 @@
 				7AD3F889205D7D4F006B7C70 /* Info.plist */,
 			);
 			path = FoodTrackerTests;
+			sourceTree = "<group>";
+		};
+		BCFBAA91208A0068000F0717 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BCFBAA92208A00B6000F0717 /* RatingControl.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AD3F875205D7D4E006B7C70 /* ViewController.swift in Sources */,
+				BCFBAA93208A00B6000F0717 /* RatingControl.swift in Sources */,
 				7AD3F873205D7D4E006B7C70 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
