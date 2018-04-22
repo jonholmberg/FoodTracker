@@ -10,6 +10,10 @@ import UIKit
 
 class MealTableViewController: UITableViewController {
 
+    fileprivate let cellIdentifier = "MealTableViewCell"
+    
+    var meals = [Meal]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,24 +32,31 @@ class MealTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return meals.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        guard let mealCell = cell as? MealTableViewCell else {
+            print("Cell not of type \(cellIdentifier)")
+            return cell
+        }
+        
+        let meal = meals[indexPath.row]
+        
+        mealCell.nameLabel.text = meal.name
+        mealCell.photoImageVIew.image = meal.photo
+        mealCell.ratingControl.rating = meal.rating
 
         // Configure the cell...
 
-        return cell
+        return mealCell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
