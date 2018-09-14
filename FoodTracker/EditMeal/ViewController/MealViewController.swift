@@ -29,6 +29,7 @@ class MealViewController: UIViewController, UITextFieldDelegate {
         let interactor = EditMealInteractor()
         let router = EditMealRouter(viewController: self)
         self.presenter = EditMealPresenter(interactor: interactor, router: router)
+        self.presenter.delegate = self
         
         presenter.viewDidLoad()
         
@@ -106,3 +107,8 @@ class MealViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
+extension MealViewController: EditMealPresenterDelegate {
+    func setImageView(to image: UIImage) {
+        photoImageView.image = image
+    }
+}

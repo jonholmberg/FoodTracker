@@ -15,6 +15,9 @@ class EditMealPresenter: NSObject, PresenterProtocol, EditMealPresenterProtocol 
     
     var router: Router
     var interactor: Interactor
+    
+    weak var delegate: EditMealPresenterDelegate?
+    
     var meal: Meal? {
         get {
             return interactor.meal
@@ -60,7 +63,7 @@ class EditMealPresenter: NSObject, PresenterProtocol, EditMealPresenterProtocol 
 
 extension EditMealPresenter: UIImagePickerControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        dismiss(animated: true, completion: nil)
+        router.dismissImagePicker()
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -69,8 +72,8 @@ extension EditMealPresenter: UIImagePickerControllerDelegate {
             return
         }
         
-//        photoImageView.image = selectedImage
-//        dismiss(animated: true, completion: nil)
+        delegate?.setImageView(to: selectedImage)
+        router.dismissImagePicker()
     }
 }
 

@@ -12,4 +12,5 @@ protocol EditMealRouterProtocol {
         typealias ImagePickerDelgatee = UIImagePickerControllerDelegate & UINavigationControllerDelegate
     
     func showImagePicker(with delegate: ImagePickerDelgatee)
+    func dismissImagePicker()
 }

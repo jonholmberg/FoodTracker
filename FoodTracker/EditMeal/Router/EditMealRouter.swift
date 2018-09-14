@@ -22,4 +22,8 @@ class EditMealRouter: RouterProtocol, EditMealRouterProtocol {
    
         viewController.present(imagePickerController, animated: true, completion: nil)
     }
+    
+    func dismissImagePicker() {
+        viewController.dismiss(animated: true, completion: nil)
+    }
 }
