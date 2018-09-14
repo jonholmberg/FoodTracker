@@ -18,16 +18,17 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    var interactor: (InteractorProtocol & EditMealInteractorProtocol)!
+    var presenter: (PresenterProtocol & EditMealPresenterProtocol)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         nameTextField.delegate = self
-        self.interactor = EditMealInteractor()
+        let interactor = EditMealInteractor()
+        self.presenter = EditMealPresenter(interactor: interactor)
         
         // Set up views if editing an existing Meal.
-        if let meal = interactor.meal {
+        if let meal = presenter.meal {
             navigationItem.title = meal.name
             nameTextField.text   = meal.name
             photoImageView.image = meal.photo
@@ -52,7 +53,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         let photo = photoImageView.image
         let rating = ratingControl.rating
         
-        interactor.meal = Meal(name: name, photo: photo, rating: rating)
+        presenter.meal = Meal(name: name, photo: photo, rating: rating)
     }
 
     // MARK: Actions

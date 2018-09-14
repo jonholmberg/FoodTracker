@@ -19,6 +19,8 @@
 		BC44A5D3214C32050024DDD6 /* MealListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC44A5D2214C32050024DDD6 /* MealListPresenter.swift */; };
 		BC44A5D7214C389A0024DDD6 /* EditMealInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC44A5D6214C389A0024DDD6 /* EditMealInteractorProtocol.swift */; };
 		BC44A5D9214C38B00024DDD6 /* EditMealInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC44A5D8214C38B00024DDD6 /* EditMealInteractor.swift */; };
+		BC44A5DD214C3B710024DDD6 /* EditMealPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC44A5DC214C3B710024DDD6 /* EditMealPresenterProtocol.swift */; };
+		BC44A5DF214C3B850024DDD6 /* EditMealPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC44A5DE214C3B850024DDD6 /* EditMealPresenter.swift */; };
 		BCF21A07209E13B40053154A /* InteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF21A06209E13B40053154A /* InteractorProtocol.swift */; };
 		BCF21A09209E13F60053154A /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF21A08209E13F60053154A /* ViewProtocol.swift */; };
 		BCF21A0B209E14030053154A /* PresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF21A0A209E14030053154A /* PresenterProtocol.swift */; };
@@ -56,6 +58,8 @@
 		BC44A5D2214C32050024DDD6 /* MealListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListPresenter.swift; sourceTree = "<group>"; };
 		BC44A5D6214C389A0024DDD6 /* EditMealInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMealInteractorProtocol.swift; sourceTree = "<group>"; };
 		BC44A5D8214C38B00024DDD6 /* EditMealInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMealInteractor.swift; sourceTree = "<group>"; };
+		BC44A5DC214C3B710024DDD6 /* EditMealPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMealPresenterProtocol.swift; sourceTree = "<group>"; };
+		BC44A5DE214C3B850024DDD6 /* EditMealPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMealPresenter.swift; sourceTree = "<group>"; };
 		BCF21A06209E13B40053154A /* InteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorProtocol.swift; sourceTree = "<group>"; };
 		BCF21A08209E13F60053154A /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
 		BCF21A0A209E14030053154A /* PresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterProtocol.swift; sourceTree = "<group>"; };
@@ -159,8 +163,9 @@
 		BC44A5D4214C384C0024DDD6 /* EditMeal */ = {
 			isa = PBXGroup;
 			children = (
+				BC44A5DB214C3B160024DDD6 /* Presenter */,
+				BC44A5DA214C3AF90024DDD6 /* ViewController */,
 				BC44A5D5214C38840024DDD6 /* Interactor */,
-				7AD3F874205D7D4E006B7C70 /* MealViewController.swift */,
 			);
 			path = EditMeal;
 			sourceTree = "<group>";
@@ -172,6 +177,23 @@
 				BC44A5D8214C38B00024DDD6 /* EditMealInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		BC44A5DA214C3AF90024DDD6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7AD3F874205D7D4E006B7C70 /* MealViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		BC44A5DB214C3B160024DDD6 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				BC44A5DC214C3B710024DDD6 /* EditMealPresenterProtocol.swift */,
+				BC44A5DE214C3B850024DDD6 /* EditMealPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		BCF21A05209E136A0053154A /* Shared */ = {
@@ -312,9 +334,11 @@
 				BCF21A0D209E15670053154A /* RouterProtocol.swift in Sources */,
 				BC44A5D1214C31EF0024DDD6 /* MealListPresenterProtocol.swift in Sources */,
 				BCF21A0B209E14030053154A /* PresenterProtocol.swift in Sources */,
+				BC44A5DD214C3B710024DDD6 /* EditMealPresenterProtocol.swift in Sources */,
 				BCF21A09209E13F60053154A /* ViewProtocol.swift in Sources */,
 				BC44A5D7214C389A0024DDD6 /* EditMealInteractorProtocol.swift in Sources */,
 				BCFBAA93208A00B6000F0717 /* RatingControl.swift in Sources */,
+				BC44A5DF214C3B850024DDD6 /* EditMealPresenter.swift in Sources */,
 				7AD3F873205D7D4E006B7C70 /* AppDelegate.swift in Sources */,
 				BC44A5D3214C32050024DDD6 /* MealListPresenter.swift in Sources */,
 				BC44A5CB214C313B0024DDD6 /* MealListInteractor.swift in Sources */,

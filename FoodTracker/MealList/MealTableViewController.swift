@@ -89,7 +89,7 @@ class MealTableViewController: UITableViewController {
             }
             
             let selectedMeal = presenter.rows[indexPath.row]
-            mealDetailViewController.interactor.meal = selectedMeal
+            mealDetailViewController.presenter.meal = selectedMeal
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
         }
@@ -99,7 +99,7 @@ class MealTableViewController: UITableViewController {
     
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? MealViewController,
-            let meal = sourceViewController.interactor.meal {
+            let meal = sourceViewController.presenter.meal {
             
             // TODO: FIX
 //            if let selectedIndexPath = tableView.indexPathForSelectedRow {
