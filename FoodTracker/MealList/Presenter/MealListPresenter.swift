@@ -7,6 +7,11 @@
 //
 
 class MealListPresenter<Interaction: InteractorProtocol & MealListInteractorProtocol>: PresenterProtocol, MealListPresenterProtocol {
+    
+    func pressedMeal(at row: Int) {
+        
+    }
+    
     var rows: [Meal]
     
     var interactor: Interaction

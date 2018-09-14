@@ -8,4 +8,6 @@
 
 protocol MealListPresenterProtocol {
     var rows: [Meal] { get }
+    
+    func pressedMeal(at row: Int)
 }

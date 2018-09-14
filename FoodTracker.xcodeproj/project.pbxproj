@@ -17,6 +17,8 @@
 		BC44A5CE214C31850024DDD6 /* MealListInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC44A5CD214C31850024DDD6 /* MealListInteractorProtocol.swift */; };
 		BC44A5D1214C31EF0024DDD6 /* MealListPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC44A5D0214C31EF0024DDD6 /* MealListPresenterProtocol.swift */; };
 		BC44A5D3214C32050024DDD6 /* MealListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC44A5D2214C32050024DDD6 /* MealListPresenter.swift */; };
+		BC44A5D7214C389A0024DDD6 /* EditMealInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC44A5D6214C389A0024DDD6 /* EditMealInteractorProtocol.swift */; };
+		BC44A5D9214C38B00024DDD6 /* EditMealInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC44A5D8214C38B00024DDD6 /* EditMealInteractor.swift */; };
 		BCF21A07209E13B40053154A /* InteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF21A06209E13B40053154A /* InteractorProtocol.swift */; };
 		BCF21A09209E13F60053154A /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF21A08209E13F60053154A /* ViewProtocol.swift */; };
 		BCF21A0B209E14030053154A /* PresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF21A0A209E14030053154A /* PresenterProtocol.swift */; };
@@ -52,6 +54,8 @@
 		BC44A5CD214C31850024DDD6 /* MealListInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListInteractorProtocol.swift; sourceTree = "<group>"; };
 		BC44A5D0214C31EF0024DDD6 /* MealListPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListPresenterProtocol.swift; sourceTree = "<group>"; };
 		BC44A5D2214C32050024DDD6 /* MealListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListPresenter.swift; sourceTree = "<group>"; };
+		BC44A5D6214C389A0024DDD6 /* EditMealInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMealInteractorProtocol.swift; sourceTree = "<group>"; };
+		BC44A5D8214C38B00024DDD6 /* EditMealInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMealInteractor.swift; sourceTree = "<group>"; };
 		BCF21A06209E13B40053154A /* InteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorProtocol.swift; sourceTree = "<group>"; };
 		BCF21A08209E13F60053154A /* ViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
 		BCF21A0A209E14030053154A /* PresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterProtocol.swift; sourceTree = "<group>"; };
@@ -101,9 +105,9 @@
 		7AD3F871205D7D4E006B7C70 /* FoodTracker */ = {
 			isa = PBXGroup;
 			children = (
+				BC44A5D4214C384C0024DDD6 /* EditMeal */,
 				BC44A5C9214C30F70024DDD6 /* MealList */,
 				BCF21A05209E136A0053154A /* Shared */,
-				BCFBAA99208A24C6000F0717 /* ViewControllers */,
 				BCFBAA94208A1ABD000F0717 /* Model */,
 				BCFBAA91208A0068000F0717 /* Views */,
 				7AD3F872205D7D4E006B7C70 /* AppDelegate.swift */,
@@ -152,6 +156,24 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		BC44A5D4214C384C0024DDD6 /* EditMeal */ = {
+			isa = PBXGroup;
+			children = (
+				BC44A5D5214C38840024DDD6 /* Interactor */,
+				7AD3F874205D7D4E006B7C70 /* MealViewController.swift */,
+			);
+			path = EditMeal;
+			sourceTree = "<group>";
+		};
+		BC44A5D5214C38840024DDD6 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				BC44A5D6214C389A0024DDD6 /* EditMealInteractorProtocol.swift */,
+				BC44A5D8214C38B00024DDD6 /* EditMealInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		BCF21A05209E136A0053154A /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,14 +200,6 @@
 				BCFBAA95208A1AD5000F0717 /* Meal.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		BCFBAA99208A24C6000F0717 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				7AD3F874205D7D4E006B7C70 /* MealViewController.swift */,
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,10 +308,12 @@
 				BCFBAA96208A1AD5000F0717 /* Meal.swift in Sources */,
 				7AD3F875205D7D4E006B7C70 /* MealViewController.swift in Sources */,
 				BC44A5CE214C31850024DDD6 /* MealListInteractorProtocol.swift in Sources */,
+				BC44A5D9214C38B00024DDD6 /* EditMealInteractor.swift in Sources */,
 				BCF21A0D209E15670053154A /* RouterProtocol.swift in Sources */,
 				BC44A5D1214C31EF0024DDD6 /* MealListPresenterProtocol.swift in Sources */,
 				BCF21A0B209E14030053154A /* PresenterProtocol.swift in Sources */,
 				BCF21A09209E13F60053154A /* ViewProtocol.swift in Sources */,
+				BC44A5D7214C389A0024DDD6 /* EditMealInteractorProtocol.swift in Sources */,
 				BCFBAA93208A00B6000F0717 /* RatingControl.swift in Sources */,
 				7AD3F873205D7D4E006B7C70 /* AppDelegate.swift in Sources */,
 				BC44A5D3214C32050024DDD6 /* MealListPresenter.swift in Sources */,
