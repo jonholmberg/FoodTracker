@@ -13,18 +13,16 @@ class MealTableViewController: UITableViewController {
 
     fileprivate let cellIdentifier = "MealTableViewCell"
     
-    var meals = [Meal]()
+    var presenter: (PresenterProtocol & MealListPresenterProtocol)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.leftBarButtonItem = editButtonItem
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        // TODO: Move to SwinjectStoryboard
+        let mealListInteractor = MealListInteractor()
+        self.presenter = MealListPresenter(interactor: mealListInteractor)
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +37,7 @@ class MealTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meals.count
+        return presenter.rows.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,7 +48,7 @@ class MealTableViewController: UITableViewController {
             return cell
         }
         
-        let meal = meals[indexPath.row]
+        let meal = presenter.rows[indexPath.row]
         
         mealCell.nameLabel.text = meal.name
         mealCell.photoImageVIew.image = meal.photo
@@ -65,31 +63,8 @@ class MealTableViewController: UITableViewController {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            meals.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
     
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
+    // TODO: Add deletion of a row.
 
     // MARK: - Navigation
 
@@ -113,7 +88,7 @@ class MealTableViewController: UITableViewController {
                 fatalError("The selected cell is not being displayed by the table")
             }
             
-            let selectedMeal = meals[indexPath.row]
+            let selectedMeal = presenter.rows[indexPath.row]
             mealDetailViewController.meal = selectedMeal
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier)")
@@ -126,14 +101,15 @@ class MealTableViewController: UITableViewController {
         if let sourceViewController = sender.source as? MealViewController,
             let meal = sourceViewController.meal {
             
-            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                meals[selectedIndexPath.row] = meal
-                tableView.reloadRows(at: [selectedIndexPath], with: .none)
-            } else {
-                let newIndexPath = IndexPath(row: meals.count, section: 0)
-                meals.append(meal)
-                tableView.insertRows(at: [newIndexPath], with: .automatic)
-            }
+            // TODO: FIX
+//            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+//                meals[selectedIndexPath.row] = meal
+//                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+//            } else {
+//                let newIndexPath = IndexPath(row: meals.count, section: 0)
+//                meals.append(meal)
+//                tableView.insertRows(at: [newIndexPath], with: .automatic)
+//            }
         }
     }
 }
