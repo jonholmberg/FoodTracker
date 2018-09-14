@@ -9,11 +9,12 @@
 import UIKit
 import os.log
 
-class MealTableViewController: UITableViewController {
-
+class MealTableViewController: UITableViewController, EditMealViewProtocol {
+    typealias Presenter = PresenterProtocol & MealListPresenterProtocol
+    
     fileprivate let cellIdentifier = "MealTableViewCell"
     
-    var presenter: (PresenterProtocol & MealListPresenterProtocol)!
+    var presenter: Presenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +24,8 @@ class MealTableViewController: UITableViewController {
         // TODO: Move to SwinjectStoryboard
         let mealListInteractor = MealListInteractor()
         self.presenter = MealListPresenter(interactor: mealListInteractor)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        presenter.viewDidLoad()
     }
 
     // MARK: - Table view data source

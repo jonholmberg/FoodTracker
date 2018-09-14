@@ -9,8 +9,10 @@
 import UIKit
 import os.log
 
-class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MealViewController: UIViewController, UITextFieldDelegate {
 
+    typealias Presenter = PresenterProtocol & EditMealPresenterProtocol
+    
     // MARK: Properties
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -18,14 +20,17 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    var presenter: (PresenterProtocol & EditMealPresenterProtocol)!
+    var presenter: Presenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         nameTextField.delegate = self
         let interactor = EditMealInteractor()
-        self.presenter = EditMealPresenter(interactor: interactor)
+        let router = EditMealRouter(viewController: self)
+        self.presenter = EditMealPresenter(interactor: interactor, router: router)
+        
+        presenter.viewDidLoad()
         
         // Set up views if editing an existing Meal.
         if let meal = presenter.meal {
@@ -53,7 +58,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         let photo = photoImageView.image
         let rating = ratingControl.rating
         
-        presenter.meal = Meal(name: name, photo: photo, rating: rating)
+        presenter.pressedSave(with: Meal(name: name, photo: photo, rating: rating)!)
     }
 
     // MARK: Actions
@@ -72,11 +77,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         nameTextField.resignFirstResponder()
         
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.sourceType = .photoLibrary
-        imagePickerController.delegate = self
-        
-        present(imagePickerController, animated: true, completion: nil)
+        presenter.pressedImage()
     }
     
     // MARK: UITextFieldDelegate
@@ -94,22 +95,6 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     func textFieldDidEndEditing(_ textField: UITextField) {
         updateSaveButtonState()
         navigationItem.title = textField.text
-    }
-    
-    //MARK: UIImagePickerControllerDelegate
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
-            print("Selected image was nil")
-            return
-        }
-        
-        photoImageView.image = selectedImage
-        dismiss(animated: true, completion: nil)
     }
     
     // MARK: Private methods

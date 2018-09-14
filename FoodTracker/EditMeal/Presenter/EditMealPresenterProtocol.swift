@@ -8,5 +8,10 @@
 
 protocol EditMealPresenterProtocol {
     var interactor: InteractorProtocol & EditMealInteractorProtocol { get }
+    var router: RouterProtocol & EditMealRouterProtocol { get }
+    
     var meal: Meal? { get set }
+    
+    func pressedSave(with meal: Meal)
+    func pressedImage()
 }
