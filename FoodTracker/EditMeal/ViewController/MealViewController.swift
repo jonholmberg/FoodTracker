@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class MealViewController: UIViewController, UITextFieldDelegate {
+class MealViewController: UIViewController, UITextFieldDelegate, EditMealViewProtocol {
 
     typealias Presenter = PresenterProtocol & EditMealPresenterProtocol
     
@@ -22,10 +22,15 @@ class MealViewController: UIViewController, UITextFieldDelegate {
     
     var presenter: Presenter!
     
+    // Default set to edit mode.
+    var editMode: Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         nameTextField.delegate = self
+        
+        // Setup VIPER
         let interactor = EditMealInteractor()
         let router = EditMealRouter(viewController: self)
         self.presenter = EditMealPresenter(interactor: interactor, router: router)
@@ -65,14 +70,7 @@ class MealViewController: UIViewController, UITextFieldDelegate {
     // MARK: Actions
 
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        let isPresentingInAddMealMode = presentingViewController is UINavigationController
-        if isPresentingInAddMealMode {
-            dismiss(animated: true, completion: nil)
-        } else if let owningNavigationController = navigationController {
-            owningNavigationController.popViewController(animated: true)
-        } else {
-            fatalError("The MealViewController is not inside a navigation controller.")
-        }
+        presenter.pressedCancel()
     }
     
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {

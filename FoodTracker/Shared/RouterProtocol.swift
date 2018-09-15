@@ -11,4 +11,5 @@ import UIKit
 protocol RouterProtocol {
     var viewController: UIViewController { get }
     
+    func back()
 }

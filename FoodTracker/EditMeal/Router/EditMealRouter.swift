@@ -26,4 +26,8 @@ class EditMealRouter: RouterProtocol, EditMealRouterProtocol {
     func dismissImagePicker() {
         viewController.dismiss(animated: true, completion: nil)
     }
+    
+    func back() {
+        viewController.navigationController?.popViewController(animated: true)
+    }
 }

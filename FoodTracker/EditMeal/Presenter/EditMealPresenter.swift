@@ -18,6 +18,7 @@ class EditMealPresenter: NSObject, PresenterProtocol, EditMealPresenterProtocol 
     
     weak var delegate: EditMealPresenterDelegate?
     
+    // TODO: Presenter should have its own view model.
     var meal: Meal? {
         get {
             return interactor.meal
@@ -38,6 +39,18 @@ class EditMealPresenter: NSObject, PresenterProtocol, EditMealPresenterProtocol 
     
     func pressedImage() {
         router.showImagePicker(with: self)
+    }
+    
+    func pressedCancel() {
+//        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+//        if isPresentingInAddMealMode {
+//            dismiss(animated: true, completion: nil)
+//        } else if let owningNavigationController = navigationController {
+//            owningNavigationController.popViewController(animated: true)
+//        } else {
+//            fatalError("The MealViewController is not inside a navigation controller.")
+//        }
+        router.back()
     }
     
     func viewDidLoad() {
@@ -61,6 +74,7 @@ class EditMealPresenter: NSObject, PresenterProtocol, EditMealPresenterProtocol 
     }
 }
 
+// TODO: Presenter should not know about UIKit. Implement a wrapper.
 extension EditMealPresenter: UIImagePickerControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         router.dismissImagePicker()

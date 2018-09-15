@@ -7,5 +7,5 @@
 //
 
 protocol EditMealViewProtocol {
-    
+    var editMode: Bool { get }
 }

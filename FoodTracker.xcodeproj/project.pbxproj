@@ -200,6 +200,7 @@
 		BC44A5DB214C3B160024DDD6 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				BC44A5E9214D6CE80024DDD6 /* Utilities */,
 				BC44A5DC214C3B710024DDD6 /* EditMealPresenterProtocol.swift */,
 				BC44A5DE214C3B850024DDD6 /* EditMealPresenter.swift */,
 				BC44A5E7214C52850024DDD6 /* EditMealPresenterDelegate.swift */,
@@ -214,6 +215,13 @@
 				BC44A5E5214C424A0024DDD6 /* EditMealRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		BC44A5E9214D6CE80024DDD6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		BCF21A05209E136A0053154A /* Shared */ = {

@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class MealTableViewController: UITableViewController, EditMealViewProtocol {
+class MealTableViewController: UITableViewController {
     typealias Presenter = PresenterProtocol & MealListPresenterProtocol
     
     fileprivate let cellIdentifier = "MealTableViewCell"

@@ -16,4 +16,5 @@ protocol EditMealPresenterProtocol {
     
     func pressedSave(with meal: Meal)
     func pressedImage()
+    func pressedCancel()
 }
